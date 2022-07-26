@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "superDigit": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "OUTPUT_PATH": "G:\\ProjetosGithub\\HackerRankSolutions\\HackerRankSolutions\\text.txt"
+      }
+    }
+  }
+}
