@@ -12,29 +12,31 @@
 
     public static int superDigit(string n, int k)
     {
-        var sum = 0;
-        string p = "";
-        for (int i = 0; i < k; i++)
+        long sum = 0;
+        long temp = 0;
+        for (int i = 0; i < n.Length; i++)
         {
-            p += n;
-        }
-        sum = sumTotal(p, sum);
-        return sum;
-    }
 
-    static int sumTotal(string n, int sum)
-    {
-        while (n.Length != 1)
+            //temp += n[i] - 48; // Works too, but is a oddly formula
+            temp += Convert.ToInt32(n[i].ToString());
+            sum = temp * k;
+        }
+
+        while (sum > 9)
         {
-            sum = 0;
+            temp = 0;
+            n = "" + sum;
+
             for (int i = 0; i < n.Length; i++)
             {
-                sum += Convert.ToInt32(n[i].ToString());
+                var digit = sum % 10;
+                temp += (int)digit;
+                sum /= 10;
             }
-            n = sum.ToString();
+            sum = temp;
         }
-        sum = Convert.ToInt32(n);
-        return sum;
+
+        return (int)sum;
     }
 }
 
